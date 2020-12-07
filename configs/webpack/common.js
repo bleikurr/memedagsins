@@ -1,7 +1,9 @@
 // shared config (dev and prod)
+require('dotenv').config();
 const {resolve} = require('path');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   resolve: {
@@ -43,6 +45,7 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new HtmlWebpackPlugin({template: 'index.html.ejs',}),
+    new webpack.EnvironmentPlugin(['MEME_HOST', 'MEME_PROTOCOL']),
   ],
   externals: {
     'react': 'React',
