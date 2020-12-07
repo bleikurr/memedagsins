@@ -7,18 +7,7 @@ import "./../assets/scss/App.scss";
 class App extends React.Component<Record<string, unknown>, undefined> {
   public render() {
     return (
-      <Container
-        style={{
-          margin: "auto",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignContent: "center",
-          minHeight: "100vh",
-          textAlign: "center",
-          verticalAlign: "center",
-        }}
-      >
+      <Container id="main-container">
         <Card
           style={{
             width: "fit-content",

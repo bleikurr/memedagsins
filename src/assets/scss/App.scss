@@ -3,7 +3,12 @@ $border-color: red;
 
 html {
 	background-image: url(https://res.cloudinary.com/frozenscloud/image/upload/v1607340223/vinna/supersecret.png);
-	background-size: cover;
+  background-size: cover;
+}
+
+body {
+  max-height: 100vh;
+  margin: 0;
 }
 
 .app {
@@ -16,3 +21,12 @@ html {
   }
 }
 
+#main-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
