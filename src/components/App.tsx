@@ -10,15 +10,6 @@ class App extends React.Component<Record<string, unknown>, undefined> {
   public render() {
     return (
       <Container id="main-container">
-        <Card
-          style={{
-            width: "fit-content",
-            padding: "20px",
-            alignSelf: "center",
-          }}
-        >
-          <img src="https://img-9gag-fun.9cache.com/photo/a1KzBe2_460s.jpg" />
-        </Card>
         <ImageViewContainer />
       </Container>
     );
@@ -26,5 +17,4 @@ class App extends React.Component<Record<string, unknown>, undefined> {
 }
 
 declare let module: Record<string, unknown>;
-
 export default hot(module)(App);
