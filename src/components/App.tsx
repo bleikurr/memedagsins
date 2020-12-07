@@ -1,17 +1,34 @@
+import { Button, Card, Container } from "@material-ui/core";
 import * as React from "react";
 import { hot } from "react-hot-loader";
 
-const reactLogo = require("./../assets/img/react_logo.svg");
 import "./../assets/scss/App.scss";
 
 class App extends React.Component<Record<string, unknown>, undefined> {
   public render() {
     return (
-      <div className="app">
-        <h1>Hello World!</h1>
-        <p>Foo to the barz</p>
-        <img src={reactLogo.default} height="480" />
-      </div>
+      <Container
+        style={{
+          margin: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignContent: "center",
+          minHeight: "100vh",
+          textAlign: "center",
+          verticalAlign: "center",
+        }}
+      >
+        <Card
+          style={{
+            width: "fit-content",
+            padding: "20px",
+            alignSelf: "center",
+          }}
+        >
+          <img src="https://img-9gag-fun.9cache.com/photo/a1KzBe2_460s.jpg" />
+        </Card>
+      </Container>
     );
   }
 }

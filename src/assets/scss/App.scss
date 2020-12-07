@@ -1,6 +1,11 @@
 $bg-color: yellow;
 $border-color: red;
 
+html {
+	background-image: url(https://res.cloudinary.com/frozenscloud/image/upload/v1607340223/vinna/supersecret.png);
+	background-size: cover;
+}
+
 .app {
   font-family: helvetica, arial, sans-serif;
   padding: 2em;
@@ -10,3 +15,4 @@ $border-color: red;
     background-color: $bg-color;
   }
 }
+
