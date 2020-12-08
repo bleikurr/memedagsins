@@ -4,7 +4,12 @@ import SetMemeForm from "./SetMemeForm";
 
 export default function SetMemeContainer() {
     return (
-        <Card style={{ height: 200, width: 500 }}>
+        <Card style={{ 
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 200, 
+            width: 500 }}>
             <SetMemeForm />
         </Card>
     );
