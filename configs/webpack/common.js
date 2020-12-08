@@ -1,5 +1,10 @@
 // shared config (dev and prod)
-require('dotenv').config();
+
+if (process.env.NODE_ENV === 'development') {
+	console.warn("Development environment");
+	require('dotenv').config();
+}
+
 const {resolve} = require('path');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
