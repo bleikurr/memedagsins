@@ -28,6 +28,8 @@ export default class  ImageViewContainer extends React.Component<unknown, State>
         this.loadMeme = this.loadMeme.bind(this);
     }
 
+    imgCard = React.createRef<HTMLElement>();
+
     setLoading = (isLoading: boolean) => this.setState(state => ({ ...state, isLoading }));
 
     async componentDidMount() {
@@ -39,16 +41,13 @@ export default class  ImageViewContainer extends React.Component<unknown, State>
                 memeCount: res.meme_count,
                 memeIndex: res.current_meme,
                 memeUrl: res.meme_url,
-                isLoading: false,
             });
         }
 
     }
 
     loadMeme = async () => {
-        this.setLoading(true);
         const { memeIndex } = this.state;
-
         const response = await fetch(`${PROTOCOL}://${MEME_HOST}/get_meme?index=${memeIndex}`);
 
         if (response.status === 200) {
@@ -57,14 +56,13 @@ export default class  ImageViewContainer extends React.Component<unknown, State>
                 memeCount: res.meme_count,
                 memeIndex: res.current_meme,
                 memeUrl: res.meme_url,
-                isLoading: false,
             });
         }
     }
 
     updateIndex = (memeIndex: number) => {
-        console.log(memeIndex);
-        this.setState(state=> ({...state, memeIndex}), this.loadMeme);
+        this.imgCard.current.style.display = 'none';
+        this.setState(state => ({...state, memeIndex, isLoading: true,}), this.loadMeme);
     }
 
     render() {
@@ -72,11 +70,17 @@ export default class  ImageViewContainer extends React.Component<unknown, State>
 
         return (
             <>
-                <ImageView memeUrl={memeUrl} isLoading={isLoading} />
+                { isLoading && <CircularProgress 
+                    color="primary" 
+                    size={128} 
+                    style={{
+                        position: 'absolute'
+                }} />}
+                <ImageView memeUrl={memeUrl} setLoading={this.setLoading} cardRef={this.imgCard} />
                 <ImageViewNav
                 memeCount={memeCount}
                 memeIndex={memeIndex} 
-                setMemeIndex={this.updateIndex}
+                setMemeIndex={this.updateIndex} 
                 />
             </>
         )

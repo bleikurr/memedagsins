@@ -31,7 +31,7 @@ class App extends React.Component<{ history: BrowserHistory }, unknown> {
                         <Route exact path="/setmeme">
                             <SetMemeContainer />
                         </Route>
-                        <Route exact path="/">
+                        <Route path="/">
                             <ImageViewContainer />
                         </Route>
                     </Switch>
